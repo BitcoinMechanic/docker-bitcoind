@@ -55,7 +55,7 @@ FROM preparer-base AS preparer-release
 ARG VERSION
 
 # Download checksums
-ADD https://github.com/BitcoinActivation/bitcoin/releases/download/v0.21.0-taproot0.1/SHA256SUMS.asc  ./
+#ADD https://github.com/BitcoinActivation/bitcoin/releases/download/v0.21.0-taproot0.1/SHA256SUMS.asc  ./
 
 # Download source code (intentionally different website than checksums)
 ADD https://github.com/BitcoinActivation/bitcoin/archive/refs/tags/v0.21.0-taproot0.1.tar.gz ./
@@ -68,7 +68,7 @@ ADD https://github.com/BitcoinActivation/bitcoin/archive/refs/tags/v0.21.0-tapro
 
 # Extract
 RUN tar -xzf "bitcoin-$VERSION.tar.gz" && \
-    rm  -f   "bitcoin-$VERSION.tar.gz"
+##    rm  -f   "bitcoin-$VERSION.tar.gz"
 
 
 
