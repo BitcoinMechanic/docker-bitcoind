@@ -84,8 +84,8 @@ RUN apk add --no-cache git
 RUN git clone  -b "v$VERSION"  --depth=1  https://github.com/BitcoinActivation/bitcoin.git  "/bitcoin-$VERSION/"
 
 # Verify tag, and copy source code to predetermined location on success
-##RUN cd "/bitcoin-$VERSION/" && \
-##    git verify-tag "v$VERSION"
+RUN cd "/bitcoin-$VERSION/" && \
+    git verify-tag "v$VERSION"
 
 
 
