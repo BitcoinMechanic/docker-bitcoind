@@ -18,7 +18,7 @@ ARG DIR=/data
 
 # Choose where to get bitcoind sources from, options: release, git
 #   NOTE: Only `SOURCE=git` can be used for RC releases
-ARG SOURCE=release
+ARG SOURCE=git
 
 # Choose where to get BerkeleyDB from, options: prebuilt, compile
 #   NOTE: When compiled here total execution time exceeds allowed CI limits, so pre-built one is used by default
@@ -171,7 +171,8 @@ RUN ./configure LDFLAGS=-L/opt/db4/lib/ CPPFLAGS=-I/opt/db4/include/ \
     --with-sqlite=yes \
     --with-daemon
 
-RUN make -j$(( $(nproc) + 1 )) check
+#RUN make -j$(( $(nproc) + 1 )) check
+RUN make
 RUN make install
 
 # List installed binaries pre-strip & strip them
