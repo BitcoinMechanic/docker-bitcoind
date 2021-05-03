@@ -37,8 +37,8 @@ RUN sed -i 's|http://dl-cdn.alpinelinux.org|https://alpine.global.ssl.fastly.net
 
 RUN apk add --no-cache  gnupg
 
-ENV KEYS 71A3B16735405025D447E8F274810B012346C9A6 01EA5486DE18A882D4C2684590C8019E36C2E964
-#ENV KEYS E463A93F5F3117EEDE6C7316BD02942421F4889F
+#ENV KEYS 71A3B16735405025D447E8F274810B012346C9A6 01EA5486DE18A882D4C2684590C8019E36C2E964
+ENV KEYS E463A93F5F3117EEDE6C7316BD02942421F4889F 0A652E7EFB526465FA70B3C66E83036631FCA7B8
 RUN timeout 16s  gpg  --keyserver keyserver.ubuntu.com  --recv-keys $KEYS
 
 # Print imported keys, but also ensure there's no other keys in the system
@@ -52,23 +52,23 @@ RUN gpg --list-keys | tail -n +3 | tee /tmp/keys.txt && \
 #
 #FROM preparer-base AS preparer-release
 
-ARG VERSION
+#ARG VERSION
 
 # Download checksums
 #ADD https://github.com/BitcoinActivation/bitcoin/releases/download/v0.21.0-taproot0.1/SHA256SUMS.asc  ./
 
 # Download source code (intentionally different website than checksums)
-ADD https://github.com/BitcoinActivation/bitcoin/archive/refs/tags/v0.21.0-taproot0.1.tar.gz ./
+#ADD https://github.com/BitcoinActivation/bitcoin/archive/refs/tags/v0.21.0-taproot0.1.tar.gz ./
 
 # Verify that hashes are signed with the previously imported key
 #RUN gpg --verify SHA256SUMS.asc
 
 # Verify that downloaded source-code archive matches exactly the hash that's provided
-RUN grep " bitcoin-$VERSION.tar.gz\$" SHA256SUMS.asc | sha256sum -c -
+#RUN grep " bitcoin-$VERSION.tar.gz\$" SHA256SUMS.asc | sha256sum -c -
 
 # Extract
-RUN tar -xzf "bitcoin-$VERSION.tar.gz" && \
-    rm  -f   "bitcoin-$VERSION.tar.gz"
+#RUN tar -xzf "bitcoin-$VERSION.tar.gz" && \
+#    rm  -f   "bitcoin-$VERSION.tar.gz"
 
 
 
