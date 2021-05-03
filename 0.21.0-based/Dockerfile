@@ -52,23 +52,23 @@ RUN gpg --list-keys | tail -n +3 | tee /tmp/keys.txt && \
 #
 #FROM preparer-base AS preparer-release
 
-#ARG VERSION
+ARG VERSION
 
 # Download checksums
 #ADD https://github.com/BitcoinActivation/bitcoin/releases/download/v0.21.0-taproot0.1/SHA256SUMS.asc  ./
 
 # Download source code (intentionally different website than checksums)
-#ADD https://github.com/BitcoinActivation/bitcoin/archive/refs/tags/v0.21.0-taproot0.1.tar.gz ./
+ADD https://github.com/BitcoinActivation/bitcoin/archive/refs/tags/v0.21.0-taproot0.1.tar.gz ./
 
 # Verify that hashes are signed with the previously imported key
 #RUN gpg --verify SHA256SUMS.asc
 
 # Verify that downloaded source-code archive matches exactly the hash that's provided
-#RUN grep " bitcoin-$VERSION.tar.gz\$" SHA256SUMS.asc | sha256sum -c -
+RUN grep " bitcoin-$VERSION.tar.gz\$" SHA256SUMS.asc | sha256sum -c -
 
 # Extract
-#RUN tar -xzf "bitcoin-$VERSION.tar.gz" && \
-##    rm  -f   "bitcoin-$VERSION.tar.gz"
+RUN tar -xzf "bitcoin-$VERSION.tar.gz" && \
+    rm  -f   "bitcoin-$VERSION.tar.gz"
 
 
 
