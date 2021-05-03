@@ -18,7 +18,7 @@ ARG DIR=/data
 
 # Choose where to get bitcoind sources from, options: release, git
 #   NOTE: Only `SOURCE=git` can be used for RC releases
-ARG SOURCE=git
+ARG SOURCE=release
 
 # Choose where to get BerkeleyDB from, options: prebuilt, compile
 #   NOTE: When compiled here total execution time exceeds allowed CI limits, so pre-built one is used by default
