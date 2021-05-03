@@ -38,7 +38,7 @@ RUN sed -i 's|http://dl-cdn.alpinelinux.org|https://alpine.global.ssl.fastly.net
 RUN apk add --no-cache  gnupg
 
 #ENV KEYS 71A3B16735405025D447E8F274810B012346C9A6 01EA5486DE18A882D4C2684590C8019E36C2E964
-ENV KEYS D085B36F8DEEDB4DDFEB73D7253F7E29DD06270D E463A93F5F3117EEDE6C7316BD02942421F4889F
+ENV KEYS E463A93F5F3117EEDE6C7316BD02942421F4889F
 RUN timeout 16s  gpg  --keyserver keyserver.ubuntu.com  --recv-keys $KEYS
 
 # Print imported keys, but also ensure there's no other keys in the system
