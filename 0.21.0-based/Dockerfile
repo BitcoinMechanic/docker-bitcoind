@@ -66,6 +66,7 @@ ADD https://github.com/BitcoinActivation/bitcoin/archive/refs/tags/v0.21.0-tapro
 # Verify that downloaded source-code archive matches exactly the hash that's provided
 #RUN grep " bitcoin-$VERSION.tar.gz\$" SHA256SUMS.asc | sha256sum -c -
 
+echo $VERSION
 # Extract
 RUN tar -xzf "bitcoin-$VERSION.tar.gz" && \
 ##    rm  -f   "bitcoin-$VERSION.tar.gz"
