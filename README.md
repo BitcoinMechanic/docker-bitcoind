@@ -1,6 +1,7 @@
 If you would like to modify your Umbrel to run the Taproot enforcing client found here: https://github.com/BitcoinActivation/bitcoin please do the following:
 
-```ssh umbrel@umbrel.local
+```
+ssh umbrel@umbrel.local
 cd umbrel
 nano docker-compose.yml
 CHANGE LINE: 
