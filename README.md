@@ -10,9 +10,7 @@ image: bitcoinmechanic/bitcoind-based:v0.21.0-based-arm64@sha256:484c956abd791b1
 ctrl+x, y, Return
 cd scripts
 sudo ./stop
-password
 sudo ./start
-password
 exit
 ```
 
