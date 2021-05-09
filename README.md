@@ -4,7 +4,7 @@ If you would like to modify your Umbrel to run the Taproot enforcing client foun
 cd umbrel
 nano docker-compose.yml
 CHANGE LINE: 
-"image: lncm/bitcoind:v0.21.1@sha256:5bedb46d698de16c59e9e43d31485d0d82239bd437d62ac7cf47ebb633214f37"
+image: lncm/bitcoind:v0.21.1@sha256:5bedb46d698de16c59e9e43d31485d0d82239bd437d62ac7cf47ebb633214f37
 TO THIS:
 image: bitcoinmechanic/bitcoind-based:v0.21.0-based-arm64@sha256:484c956abd791b138024367faee894135b87cdc14c288c8210e5c780fc3dd365
 ctrl+x, y, Return
